@@ -6,50 +6,62 @@
       <form @submit.prevent="login">
         <div class="mt-4">
           <label class="block text-sm">Email</label>
-          <input v-model="email" type="email" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring" />
+          <input
+            v-model="email"
+            type="email"
+            required
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring"
+          />
         </div>
 
         <div class="mt-4">
           <label class="block text-sm">Password</label>
-          <input v-model="password" type="password" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring" />
+          <input
+            v-model="password"
+            type="password"
+            required
+            class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring"
+          />
         </div>
 
-        <button type="submit" class="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600">
+        <button
+          type="submit"
+          class="w-full mt-4 bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600"
+        >
           Login
         </button>
       </form>
 
       <p v-if="errorMessage" class="mt-2 text-red-500">{{ errorMessage }}</p>
       <p class="mt-2">
-  Don't have an account?
-  <router-link to="/register" class="text-blue-500 hover:underline">Sign up here</router-link>
-</p>
-
+        Don't have an account?
+        <router-link to="/register" class="text-blue-500 hover:underline">Sign up here</router-link>
+      </p>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-import axios from "axios";
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import axios from 'axios'
 
-const router = useRouter();
-const email = ref("");
-const password = ref("");
-const errorMessage = ref("");
+const router = useRouter()
+const email = ref('')
+const password = ref('')
+const errorMessage = ref('')
 
 const login = async () => {
   try {
-    const response = await axios.post("http://127.0.0.1:8000/api/login", {
+    const response = await axios.post('http://127.0.0.1:8000/api/login', {
       email: email.value,
       password: password.value,
-    });
+    })
 
-    localStorage.setItem("token", response.data.token);
-    router.push("/dashboard");
+    localStorage.setItem('token', response.data.token)
+    router.push('/dashboard')
   } catch (error) {
-    errorMessage.value = "Invalid credentials, please try again.";
+    errorMessage.value = 'Invalid credentials, please try again.'
   }
-};
+}
 </script>

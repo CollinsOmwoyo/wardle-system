@@ -97,7 +97,9 @@ body {
 }
 
 /*Smooth transitions */
-a, button, input, textarea {
+a,
+button,
+input,
+textarea {
     transition: all 0.3s ease-in-out;
 }
-
