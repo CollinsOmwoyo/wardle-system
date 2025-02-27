@@ -29,7 +29,7 @@
   
   <script setup>
   import { ref, defineProps, defineEmits, watch } from "vue";
-  import ClothingService from "@/services/ClothingService";
+  import ClothingService from "@/stores/ClothingService";
   
   const props = defineProps(["item"]);
   const emit = defineEmits(["close", "saved"]);

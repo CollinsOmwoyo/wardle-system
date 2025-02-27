@@ -26,8 +26,8 @@
   
   <script setup>
   import { ref, onMounted } from "vue";
-  import ClothingService from "@/services/ClothingService";
-  import ClothingForm from "@/components/ClothingForm.vue";
+  import ClothingService from "@/stores/ClothingService";
+  import ClothingForm from "@/views/ClothingForm.vue";
   
   const items = ref([]);
   const loading = ref(true);
