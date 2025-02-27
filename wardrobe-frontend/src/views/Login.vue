@@ -20,6 +20,11 @@
       </form>
 
       <p v-if="errorMessage" class="mt-2 text-red-500">{{ errorMessage }}</p>
+      <p class="mt-2">
+  Don't have an account?
+  <router-link to="/register" class="text-blue-500 hover:underline">Sign up here</router-link>
+</p>
+
     </div>
   </div>
 </template>

@@ -1,9 +1,11 @@
 import AddItem from "@/views/AddItem.vue";
 import Dashboard from "@/views/Dashboard.vue";
 import Login from "@/views/Login.vue";
+import Register from "@/views/Register.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
+  {path:"/register", component: Register},
   { path: "/", redirect: "/login" },
   { path: "/login", component: Login },
   {
